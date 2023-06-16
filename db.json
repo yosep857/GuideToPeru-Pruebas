@@ -1,0 +1,74 @@
+{
+	"Usuarios": [
+		{
+			"id": 0,
+			"email": "AnaGonz@gmail.com",
+			"contrasenia": "*********",
+			"telefono": "928457131"
+		}
+	],
+	"Destinos": [
+	 {
+			"id": 1,
+			"nombre": "Destino 1",
+			"ubicacion": "historia... 1",
+      "descripcion": "desc.. 1",
+      "imagen": "imagen...1",
+      "distrito": "distrito...1",
+      "departarmento": "departamento...1"
+		},
+		{
+			"id": 2,
+			"nombre": "Destino 2",
+			"ubicacion": "historia... 2",
+      "descripcion": "desc.. 2",
+      "imagen": "imagen...2",
+      "distrito": "distrito...2",
+      "departarmento": "departamento...2"
+		},
+		{
+			"id": 3,
+			"nombre": "Destino 3",
+			"ubicacion": "historia... 3",
+      "descripcion": "desc.. 3",
+      "imagen": "imagen...3",
+      "distrito": "distrito...3",
+      "departarmento": "departamento...3"
+		}
+	],
+	"Negocio": [
+		{
+			"id": 1,
+			"nameNegocio": "Fast Market",
+			"direccionNegocio": "Av Jose Galvez #1345",
+			"telefono": "5687943654",
+			"emailNegocio": "fastmark@gmail.com",
+			"tipoNegocio": "Productos primera necesidad",
+			"IDusuario": "0"
+		}
+	],
+	"clientes": [
+		{
+			"id": 1,
+			"nameCliente": "Ana",
+			"apellidoCliente": "Gonzalez",
+			"anioNacimiento": "1999-10-10",
+			"emailCliente": "AnaGonz@gmail.com",
+			"telefono": "912345678",
+			"direccion": "Urb Bello Horizonte Lt. Ll",
+			"IDUsuario": "0",
+			"cuentaBancaria": "100200300"
+		}
+	],
+	"Compras": [
+		{
+			"id": 1,
+			"cantidad": "1",
+			"precio_total": "$2.00",
+			"descripcion": "Compra de un producto x",
+			"fecha": "2022-06-24",
+			"Cliente_ID": "0",
+			"Negocio_ID": "0"
+		}
+	]
+}

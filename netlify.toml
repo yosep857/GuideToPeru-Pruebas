@@ -1,0 +1,11 @@
+[build]
+	command = "npm run build --prod && npm run json-server"
+	publish = "ng serve --open"
+
+[dev]
+	command = "ng serve --open"
+
+[[redirects]]
+	from = "/api/*"
+	to = "http://localhost:3000/:splat"
+	status = 200
