@@ -1,0 +1,63 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br>
+    <button mat-button routerLink="/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/destinos">tipoNegocio</button>
+    <br>
+    <button mat-button routerLink="/destinos">Etiquetas</button>
+    <br>
+    <button mat-button routerLink="/destinos">Comentario Producto</button>
+  </mat-sidenav>  
+
+  <mat-sidenav-content>
+    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <div class="container">
+      <div style="text-align: center;">
+
+        <h1>Registro de usuarios</h1>
+      </div>
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="id" formControlName="id">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email" formControlName="emailUsuario">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="contrasenia" formControlName="contraseniaUsuario">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Telefono</mat-label>
+          <input matInput placeholder="telefono" formControlName="telefonoUsuario">
+        </mat-form-field>
+        <br>
+
+        <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
+        <button mat-raised-button color="warn" routerLink="/usuarios"><span
+            class="material-icons">delete</span></button>
+        <p>{{mensaje}}</p>
+
+      </form>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

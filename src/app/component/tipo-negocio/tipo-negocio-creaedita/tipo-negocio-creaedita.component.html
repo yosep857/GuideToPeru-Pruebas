@@ -1,0 +1,57 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br>
+    <button mat-button routerLink="/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/destinos">tipoNegocio</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Registrar Tipo de Negocio</h1>
+      </div>
+ 
+        <form [formGroup]="form" (submit)="aceptar()">
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Codigo Tipo de Negocio</mat-label>
+            <input matInput placeholder="Código" formControlName="idTipoNegocio" />
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre del Negocio</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombre" />
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Descripcion del tipo del Negocio</mat-label>
+            <input matInput placeholder="Dirección" formControlName="descripcion" />
+          </mat-form-field>
+          <br>
+
+          <div style="text-align: center">
+            <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
+            <button mat-raised-button color="warn" routerLink="/tiponegocios"><span
+                class="material-icons">delete</span></button>
+            <br>
+          </div>
+
+          <p>{{mensaje}}</p>
+
+        </form>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

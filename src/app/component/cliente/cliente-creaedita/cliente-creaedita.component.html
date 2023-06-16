@@ -1,0 +1,87 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br>
+    <button mat-button routerLink="/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/destinos">tipoNegocio</button>
+    <br>
+    <button mat-button routerLink="/destinos">Etiquetas</button>
+    <br>
+    <button mat-button routerLink="/destinos">Comentario Producto</button>
+  </mat-sidenav>  
+
+  <mat-sidenav-content>
+    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <div class="container">
+      <div style="text-align: center;">
+        <h1>Registro de clientes</h1>
+      </div>
+
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Codigo</mat-label>
+          <input matInput placeholder="Codigo" formControlName="id">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" formControlName="nameCliente">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input matInput placeholder="Apellido" formControlName="apellidoCliente">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="anioNacimiento" [max]="maxFecha">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Direccion</mat-label>
+          <input matInput placeholder="Direccion" formControlName="direccion">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>IDUsuario</mat-label>
+          <mat-select formControlName="idusuario" [(value)]="idUsuarioSeleccionado" required>
+            <mat-option *ngFor="let a of lista" [value]="a.id">
+              {{a.id}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cuenta Bancaria</mat-label>
+          <input matInput placeholder="CuentaBancaria" formControlName="cuentaBancaria">
+        </mat-form-field>
+        <br>
+
+        <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
+        <button mat-raised-button color="warn" routerLink="/clientes"><span
+            class="material-icons">delete</span></button>
+        <p>{{mensaje}}</p>
+
+      </form>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

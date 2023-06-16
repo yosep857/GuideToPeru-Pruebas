@@ -1,0 +1,77 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br>
+    <button mat-button routerLink="/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/destinos">Destinos</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <div class="container">
+      <div style="text-align: center;">
+
+        <h1>Registro de Destinos</h1>
+      </div>
+      <form [formGroup]="form" (submit)="aceptar()">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Código:</mat-label>
+          <input matInput required placeholder="Código" formControlName="id">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Destinos:</mat-label>
+          <input matInput required placeholder="Nombre" formControlName="nombre">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Ubicacion:</mat-label>
+          <textarea matInput required=" ubicacion... " formControlName="ubicacion"></textarea>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Descripcion:</mat-label>
+          <textarea matInput required=" Descripcion... " formControlName="descripcion"></textarea>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Imagen:</mat-label>
+          <textarea matInput required=" Imagen... " formControlName="imagen"></textarea>
+        </mat-form-field>
+        <br>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Distrito:</mat-label>
+          <textarea matInput required=" Distrito... " formControlName="distrito"></textarea>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Departamento:</mat-label>
+          <textarea matInput required=" Departamento... " formControlName="departarmento"></textarea>
+        </mat-form-field>
+        <br>
+
+        <div style="text-align: center;">
+
+          <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
+          <button mat-raised-button color="warn" routerLink="/destinos"><span
+              class="material-icons">delete</span></button>
+          <br>
+        </div>
+
+        <p>{{mensaje}}</p>
+      </form>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,68 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br>
+    <button mat-button routerLink="/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/destinos">tipoNegocio</button>
+    <br>
+    <button mat-button routerLink="/destinos">Etiqueta</button>
+    <br>
+    <button mat-button routerLink="/destinos">Comentario Producto</button>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Registrar Negocios</h1>
+      </div>
+ 
+        <form [formGroup]="form" (submit)="aceptar()">
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Comentario Producto</mat-label>
+            <input matInput placeholder="idComentarioProducto" formControlName="idComentarioProducto" />
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Comentario</mat-label>
+            <input matInput placeholder="comentario" formControlName="comentario" />
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Calificacion</mat-label>
+            <input matInput placeholder="Dirección" formControlName="calificacion" />
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Producto</mat-label>
+            <input matInput placeholder="Tipo" formControlName="producto" />
+          </mat-form-field>
+          <br>
+         
+          <div style="text-align: center">
+            <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
+            <button mat-raised-button color="warn" routerLink="/negocios"><span
+                class="material-icons">delete</span></button>
+            <br>
+          </div>
+
+          <p>{{mensaje}}</p>
+
+        </form>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

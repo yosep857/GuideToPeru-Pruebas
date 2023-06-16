@@ -1,0 +1,123 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br>
+    <button mat-button routerLink="/clientes">Clientes</button>
+    <br>
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br>
+    <button mat-button routerLink="/compras">Compras</button>
+    <br>
+    <button mat-button routerLink="/destinos">Destinos</button>
+    <br>
+    <button mat-button routerLink="/destinos">tipoNegocio</button>
+    <br>
+    <button mat-button routerLink="/destinos">Etiquetas</button>
+    <br>
+    <button mat-button routerLink="/destinos">Comentario Producto</button>
+  </mat-sidenav>  
+
+  <mat-sidenav-content>
+    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <div class="container">
+      <div style="text-align: center;">
+        <h1>Lista de Clientes</h1>
+      </div>
+
+      <div style="text-align: right;">
+        <button mat-raised-button color="warn" [routerLink]="['registrarcl']"><span
+            class="material-icons">add</span></button>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
+      </mat-form-field>
+
+      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+      </mat-paginator>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="Codigo">
+
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="Nombre">
+
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+
+          <td mat-cell *matCellDef="let element"> {{element.nameCliente}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="Apellido">
+
+          <th mat-header-cell *matHeaderCellDef> Apellido</th>
+
+          <td mat-cell *matCellDef="let element"> {{element.apellidoCliente}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="Fecha">
+
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+
+          <td mat-cell *matCellDef="let element"> {{element.anioNacimiento}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="Direccion">
+
+          <th mat-header-cell *matHeaderCellDef> Direccion </th>
+
+          <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="Usuario">
+
+          <th mat-header-cell *matHeaderCellDef> IDUsuario </th>
+
+          <td mat-cell *matCellDef="let element"> {{element.idusuario.id}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="N°Cuenta">
+
+          <th mat-header-cell *matHeaderCellDef> Cuaneta Bancaria </th>
+
+          <td mat-cell *matCellDef="let element"> {{element.cuentaBancaria}} </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="accion01">
+
+          <th mat-header-cell *matHeaderCellDef> Modificar </th>
+
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]"><span
+                class="material-icons">settings</span></button>
+          </td>
+
+        </ng-container>
+
+        <ng-container matColumnDef="acciones2">
+          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="accent" (click)="confirm(element.id)"><span
+                class="material-icons">delete</span></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
